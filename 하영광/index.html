@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function process_plus() {
+            input1 = document.getElementById('input1');
+            input2 = document.getElementById('input2');
+            result = document.getElementById('result');
+            result.value = parseInt(input1.value) + parseInt(input2.value);
+        }
+        function process_minus() {
+            input1 = document.getElementById('input1');
+            input2 = document.getElementById('input2');
+            result = document.getElementById('result');
+            result.value = parseInt(input1.value) - parseInt(input2.value);
+        }
+    </script>
+</head>
+<body>
+    input1: <input type="number" id="input1" value="0" /><br />
+    input2: <input type="number" id="input2" value="0" /><br />
+    [+]: <input type="button" value=" [ + ] " onclick="process_plus(); return false;" /><br />
+    [-]: <input type="button" value=" [ - ] " onclick="process_minus(); return false;" /><br />
+    result: <input type="number" id="result" /><br />
+</body>
+</html>
