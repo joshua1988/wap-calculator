@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>계산기 과제 - 지소라</title>
+  <script>
+    function absum(){
+       var av = parseInt(document.getElementById('av').value);
+       var bv = parseInt(document.getElementById('bv').value);
+
+      document.getElementById('plusResult').innerHTML = "A와 B의 합은&nbsp;" + (av+bv) + "&nbsp;입니다"
+    }
+
+    function absubtract(){
+      var av = document.getElementById('av').value;
+      var bv = document.getElementById('bv').value;
+
+      document.getElementById('plusResult').innerHTML = "A와 B의 차는&nbsp;" + (av-bv) + "&nbsp;입니다"
+    }
+  </script>
+</head>
+<body>
+    <div style="width: 500px">A값을 입력하세요&nbsp;<input type="text" style="width: 100px" id="av"></div>
+    <div style="width: 500px">B값을 입력하세요&nbsp;<input type="text" style="width: 100px" id="bv"></div>
+    <button type="button" onclick="absum()" return false;>A+B</button>
+    <button type="button" onclick="absubtract()">A-B</button>
+    <div id="plusResult"></div>
+    <div id="minusresult"></div>
+</body>
+</html>
