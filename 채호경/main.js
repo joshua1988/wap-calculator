@@ -18,7 +18,7 @@ let substraction = function() {
 }
 
 let updateResult = function() {
-    addResultEl.innerHTML = `${firstNumEl.value} + ${secondNumEl.value} = ${addition()}`;
-    subResultEl.innerHTML = `${firstNumEl.value} - ${secondNumEl.value} = ${substraction()}`;
+    addResultEl.innerHTML = `${firstNumEl.value} + ${secondNumEl.value} = <span class="result">${addition()}</span>`;
+    subResultEl.innerHTML = `${firstNumEl.value} - ${secondNumEl.value} = <span class="result">${substraction()}</span>`;
 }
 

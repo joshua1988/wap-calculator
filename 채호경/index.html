@@ -11,13 +11,15 @@
     <header>
         <h2>채호경 계산기 과제 제출</h2>
     </header>
+    <h3>-숫자 두 개를 입력하세요</h3>
     <div class="inputElements">
-        <input type="number" name="firstNum" autofocus>
-        <input type="number" value="0" name="secondNum">
+        <input type="number" placeholder="number only" name="firstNum" autofocus>
+        <div>&</div>
+        <input type="number" placeholder="number only" name="secondNum">
     </div>
     <div class="resultElements">
-        <div class="addResult"></div>
-        <div class="subResult"></div>
+        <div>덧셈 결과: <span class="addResult"></span></div>
+        <div>뺄셈 결과: <span class="subResult"></span></div>
     </div>
     <script src="./main.js"></script>
 </body>
