@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>계산기 과제 - 이슬</title>
+</head>
+<body>
+   <style>
+    .wrap { max-width:800px; margin:50px auto 0; text-align:center; }
+    .wrap input,
+    .wrap select { height:30px; border:1px solid #ccc; padding:0 10px; vertical-align:middle; text-align:center; }
+    .wrap input:focus,
+    .wrap select:focus { outline:none; }
+    .wrap .equal { background-color:#fff; }
+    .wrap #sum { border:none; background-color:rgba(0,0,0,0.1); cursor:default; }
+   </style>
+
+<div class="wrap">
+    <h2>계산기 과제</h2>
+    <div>
+        <input type="tel" id="num1"/>
+        <select id="calculateSel">
+            <option value="default">선택</option>
+            <option value="plus">+</option>
+            <option value="minus">-</option>
+        </select>
+        <input type="tel" id="num2"/>
+        <input type="button" value="=" class="equal" onClick="equals();"/>
+        <input type="text" id="sum" readonly/>
+    </div>
+</div>
+
+<script>
+    function equals(){
+        var calSel = document.getElementById('calculateSel'),
+            calVal = calSel.options[calSel.selectedIndex].value;
+        
+        if( calVal == 'default' ){
+            alert('덧셈 or 뺄셈 연산을 선택해주세요');
+        }
+        else{
+            var num1 = Number(document.getElementById('num1').value),
+                num2 = Number(document.getElementById('num2').value);
+            if( num1 == '' ){
+                num1 = 0;
+                document.getElementById('num1').value = 0;
+            }
+            if( num2 == '' ){
+                num2 = 0;
+                document.getElementById('num2').value = 0;
+            }
+
+            if(calVal == 'plus') document.getElementById('sum').value = num1 + num2;
+            else document.getElementById('sum').value = num1 - num2;
+        }
+    }
+</script>
+
+</body>
+</html>
