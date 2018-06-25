@@ -1,0 +1,92 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>계산기 과제 - 최수정</title>
+</head>
+
+<body>
+    <div class="operate">
+        <input type="text" id="val1">
+        <button onclick="calculatate('+')">+</button>
+        <button onclick="calculatate('-')">-</button>
+        <input type="text" id="val2">
+    </div>
+</body>
+<script>
+    var validateMessage = "숫자를 입력해주세요.";
+
+    function calculatate(operator) {
+        var val1 = parseInt(document.getElementById("val1").value);
+        var val2 = parseInt(document.getElementById("val2").value);
+        var result = "";
+        var tmpResult = 0;
+
+        var validateFlag = validate(val1, val2);
+
+        if (!validateFlag) {
+            resultOutput(validateMessage);
+            return;
+        }
+
+        switch (operator) {
+            case "+":
+                tmpResult = val1 + val2;
+                break;
+            case "-":
+                tmpResult = val1 - val2;
+                break;
+        }
+        result = val1 + operator + val2 + "=" + tmpResult;
+
+        resultOutput(result);
+
+    }
+
+    function resultOutput(result) {
+        var exist = document.getElementById("resultDiv");
+        if (!exist) {
+            var resultDiv = document.createElement("div");
+            resultDiv.id = "resultDiv";
+            resultDiv.className = "result"
+            var text = document.createTextNode(result);
+            resultDiv.appendChild(text);
+            document.body.appendChild(resultDiv);
+        } else {
+            exist.innerText = result;
+        }
+    }
+
+    function validate(val1, val2) {
+        var flag = true;
+        if (isNaN(val1) || isNaN(val2)) {
+            flag = false;
+        }
+        return flag;
+    }
+</script>
+
+<style>
+    .operate {
+        position: absolute;
+        top: 10%;
+        left: 45%;
+        width: auto;
+        height: auto;
+        margin: -50px 0 0 -50px;
+    }
+
+    .result {
+        position: absolute;
+        top: 15%;
+        left: 53%;
+        width: auto;
+        height: auto;
+        margin: -50px 0 0 -50px;
+        color: blue;
+    }
+</style>
+
+</html>
