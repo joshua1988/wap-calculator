@@ -5,7 +5,6 @@ let subResultEl = document.querySelector('.subResult');
 firstNumEl.addEventListener('keyup', () => {
     updateResult();
 });
-
 secondNumEl.addEventListener('keyup', () => {
     updateResult();
 });
@@ -19,6 +18,7 @@ let substraction = function() {
 }
 
 let updateResult = function() {
-    addResultEl.innerHTML = addition();
-    subResultEl.innerHTML = substraction();
+    addResultEl.innerHTML = `${firstNumEl.value} + ${secondNumEl.value} = ${addition()}`;
+    subResultEl.innerHTML = `${firstNumEl.value} - ${secondNumEl.value} = ${substraction()}`;
 }
+

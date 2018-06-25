@@ -1,11 +1,37 @@
-* {
+/* * {
     border: 1px solid;
-}
+} */
 
 header {
     text-align: center;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 input {
-    width: 50%;
+    width: 20%;
+    height: 50px;
+    border-radius: 4px;
+    font-size: 50px;
+}
+
+.inputElements {
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.resultElements {
+    height: 30%;;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1% 0px;
 }
