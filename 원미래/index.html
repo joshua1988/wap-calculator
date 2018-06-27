@@ -1,11 +1,68 @@
-<html lang="en">
+<!doctype html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>계산기 과제 - 원미래</title>
+    <style>
+        *{margin:0;padding:0;font-family:'Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif;font-size:13px;}
+        a{text-decoration:none;}
+        ::-webkit-input-placeholder{color:#999;}
+        ::-moz-placeholder{color:#999;}
+        :-ms-input-placeholder{color:#999;}
+        :-moz-placeholder{color:#999;}
+        .calculate-wrap{width:500px;border:1px solid #567189;margin:20px;text-align:center;}
+        .calculate-wrap dt{height:28px;line-height:27px;background:#567189;font-size:14px;color:#fff;font-weight:bold;}
+        .calculate-wrap dd{padding:20px 0;}
+        .calculate-wrap input[type='number']{height:30px;border:1px solid #ccc;padding:0 8px;box-sizing:border-box;}
+        .calculate-wrap input[type='number']:focus{border-color:#555;outline:none;}
+        .calculate-wrap input[type='number'] + span{font-size:15px;}
+        .calculate-wrap .btn-type{display:inline-block;width:80px;height:30px;line-height:29px;text-align:center;color:#333;font-weight:bold;border:1px solid #ccc;background:-webkit-linear-gradient(top, #f6f6f6 0%,#ccc 100%);background:linear-gradient(to bottom, #f6f6f6 0%,#ccc 100%);vertical-align:top;box-sizing:border-box;}
+        .calculate-wrap .btn-type:hover{border-color:#333;background:-webkit-linear-gradient(top, #9c9c9c 0%,#575757 100%);background:linear-gradient(to bottom, #9c9c9c 0%,#575757 100%);color:#fff;}
+        .calculate-wrap .txt-result{display:none;font-size:15px;margin-top:20px;}
+        .calculate-wrap .txt-result strong{font-size:16px;margin:0 4px;}
+    </style>
 </head>
 <body>
-    과제 작성  
+<!-- .calculate-wrap : S -->
+<dl class="calculate-wrap">
+    <dt>덧셈</dt>
+    <dd class="add">
+        <input type="number" id="num1" placeholder="숫자입력" /> <span>+</span> <input type="number" id="num2" placeholder="숫자입력" />
+        <a href="#none" class="btn-type">계산하기</a>
+        <p class="txt-result"></p>
+    </dd>
+    <dt>뺄셈</dt>
+    <dd class="subtract">
+        <input type="number" id="num3" placeholder="숫자입력" /> <span>-</span> <input type="number" id="num4" placeholder="숫자입력" />
+        <a href="#none" class="btn-type">계산하기</a>
+        <p class="txt-result"></p>
+    </dd>
+</dl>
+<!-- //.calculate-wrap : E -->
+
+<script>
+    var btnAdd = document.querySelector('.add .btn-type');
+    var btnSubtract = document.querySelector('.subtract .btn-type');
+    // 두 수의 합 구하기
+    var addition = function () {
+        var num1 = parseInt(document.getElementById('num1').value);
+        var num2 = parseInt(document.getElementById('num2').value);
+        var addResult = document.querySelector('.add .txt-result');
+        addResult.style.display = 'block';
+        addResult.innerHTML = '두 수의 합은' + '<strong>' + (num1 + num2) + '</strong>' + '입니다';
+    };
+    // 두 수의 차 구하기
+    var subtraction = function () {
+        var num3 = parseInt(document.getElementById('num3').value);
+        var num4 = parseInt(document.getElementById('num4').value);
+        var subtractResult = document.querySelector('.subtract .txt-result');
+        subtractResult.style.display = 'block';
+        subtractResult.innerHTML = '두 수의 차는' + '<strong>' + (num3 - num4) + '</strong>' + '입니다';
+    };
+    btnAdd.addEventListener('click', addition);
+    btnSubtract.addEventListener('click', subtraction);
+</script>
 </body>
 </html>
