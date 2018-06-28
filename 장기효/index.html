@@ -3,9 +3,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>계산기 과제 - 장기효</title>
+  <link rel="stylesheet" href="calc.css">
+  <title>계산기 과제 - 윤재윤</title>
 </head>
 <body>
-  과제 작성
+  <!-- 2개의 숫자를 입력 받는 인풋 박스
+입력한 2개의 숫자를 연산하는 덧셈(+), 뺄셈(-) 기능
+계산 과정과 결과를 화면에 출력 -->  
+
+  <div class='calcBox'>
+    <div class='historyNResult'>
+      <div>
+        <span> 과정 : </span>
+        <span class='calHistory'></span>
+      </div>
+      <div>
+        <span>결과 : </span>
+        <span class='calResult'></span>
+      </div>
+    </div>
+
+    <div class='formula'>
+      <input class='operand1' type="number" min="0" oninput="validity.valid||(value='');">
+      <span class='operator'></span>
+      <input class='operand2' type="number" min="0" oninput="validity.valid||(value='');">
+    </div>
+    
+    <div class='operatorOption'>
+      <div class='minus'> - </div>
+      <div class='plus'> + </div>
+    </div>
+    
+
+    <div class='fnBtn'>
+      <div class='calculator'>계산</div>
+      <div class='init'>초기화</div>
+    </div>
+
+  </div>
+  <script src="calc.js"></script>
+
 </body>
 </html>
