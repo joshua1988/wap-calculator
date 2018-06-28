@@ -26,7 +26,7 @@
         <label>과정</label>    
     </div>
     <div>   
-        <textarea name="" id="txtaProcess" cols="30" rows="10"></textarea>
+        <input type="text" id="txtProcess" value="">
     </div>
     <div>  
         <label> 결과</label>    
@@ -43,36 +43,41 @@
         }
 
         function myCalcu(){
-            var input1 = document.getElementById("txtNum1");
-            var num1 = parseInt(input1.value);
-            var input2 = document.getElementById("txtNum2");
-            var num2 = parseInt(input2.value);
-            var input3 = document.getElementById("txtNum3");
-            var num3 = parseInt(input3.value);
-            
+            var txtNum1 = document.getElementById("txtNum1");
+            var num1 = parseInt(txtNum1.value);
+            var txtNum2 = document.getElementById("txtNum2");
+            var num2 = parseInt(txtNum2.value);
+            var txtNum3 = document.getElementById("txtNum3");
+            var num3 = parseInt(txtNum3.value);
+            var txtProcess = document.getElementById("txtProcess");
+
+            txtProcess.value = txtNum1.value + op + txtNum2.value + '=';
+
             if (op =='+'){
+                
                 num3 = num1 + num2;
-                input3.value = String(num3);
+                txtNum3.value = String(num3);
 
             } else if (op =='-'){
                 num3 = num1 - num2;
-                input3.value = String(num3);
+                txtNum3.value = String(num3);
 
             }
 
         }
 
         function myInit(){
-            var input1 = document.getElementById("txtNum1");
-            var num1 = parseInt(input1.value);
-            var input2 = document.getElementById("txtNum2");
-            var num2 = parseInt(input2.value);
-            var input3 = document.getElementById("txtNum3");
-            var num3 = parseInt(input3.value);
+            var txtNum1 = document.getElementById("txtNum1");
+            var num1 = parseInt(txtNum1.value);
+            var txtNum2 = document.getElementById("txtNum2");
+            var num2 = parseInt(txtNum2.value);
+            var txtNum3 = document.getElementById("txtNum3");
+            var num3 = parseInt(txtNum3.value);
 
-            input1.value = '0';
-            input2.value = '0';
-            input3.value = '0';
+            txtNum1.value = '0';
+            txtNum2.value = '0';
+            txtProcess.value = '';
+            txtNum3.value = '0';
 
         }
     </script>
