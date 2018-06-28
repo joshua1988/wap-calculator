@@ -4,21 +4,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>계산기 정상언</title>
+
+    <style>
+        div {
+            margin: 10px;
+        }
+        input{
+            font-size: 20px;
+        }
+        input.numRight{
+            text-align: right;
+        }
+        input.sign{
+            width: 50px;
+        }
+
+    </style>
 </head>
 <body>
-    <h3>단순 계산기</h3>
+    <h1>단순 계산기</h1>
     <div>    
-        <input type="text" id="txtNum1" value="0">
+        <input type="text" class='numRight' id="txtNum1">
     </div>
     <div>  
-        <input type="button" id="btnPlus" value="+" onclick="myOper('+')">
-        <input type="button" id="btnPlus" value="-" onclick="myOper('-')">
+        <input type="button" class='sign' id="btnPlus" value="+" onclick="myOper('+')">
+        <input type="button" class='sign' id="btnPlus" value="-" onclick="myOper('-')">
     </div>
     <div>  
-        <input type="text" id="txtNum2" value="0">
+        <input type="text" class='numRight' id="txtNum2" >
     </div>
     <div>  
-        <input type="button" id="btnResult" value="=" onclick="myCalcu()">
+        <input type="button" class='sign' id="btnResult" value="=" onclick="myCalcu()">
         <input type="button" id="btnInit" value="초기화" onclick="myInit()">
     </div>
     <hr>
@@ -26,13 +42,13 @@
         <label>과정</label>    
     </div>
     <div>   
-        <input type="text" id="txtProcess" value="">
+        <input type="text" class='numLeft' id="txtProcess" value="">
     </div>
     <div>  
         <label> 결과</label>    
     </div>
     <div>  
-        <input type="text" id="txtNum3" value="0">
+        <input type="text" class='numRight' id="txtNum3" value="0">
     </div>
     
     <script>
