@@ -1,0 +1,86 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>계산기 과제 - 김용현</title>
+    <style type="text/css">
+        .calc{
+            display: block;
+            width: 300px;
+            border: 2px solid #90bcff;
+            border-radius: 10px;
+        }
+        .calc .wrap{
+            width: 210px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .calc label{
+            width: 65px;
+            display: inline-block;
+            text-align: right;
+        }
+        .calc button{
+            /* vertical-align: middle; */
+        }
+        .calc .wrap .btn-wrap{
+            margin-left: 69px;
+        }
+        .calc input{
+            margin-top: 2px;
+        }
+        .calc #num1{
+            margin-top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calc">
+        <div class="wrap">
+            <label for="num1">number1</label>
+            <input type="text" id="num1" name="num1" placeholder="0"/><br>
+            <label for="num2">number2</label>
+            <input type="text" id="num2" name="num2" placeholder="0"/><br>
+            <div class="btn-wrap">
+                <button class="plus-btn" onclick="calc.plus();return false;">+</button>
+                <button class="minus-btn" onclick="calc.minus();return false;">-</button>
+                <button class="multiply-btn" onclick="calc.multiply();return false;">*</button>
+                <button class="divide-btn" onclick="calc.divide();return false;">/</button>
+            </div>
+            <div>
+                <label for="result">result</label>
+                <input type="text" id="result" name="result" class="result" value="0" disabled/>
+            </div>
+        </div>   
+    </div>
+    <script>
+        var calc = {
+            input_num1: document.getElementById('num1'),
+            input_num2: document.getElementById('num2'),
+            result: document.getElementById('result'),
+            plus: function(){
+                var total = 0;
+                total =  parseInt(this.input_num1.value||0) + parseInt(this.input_num2.value||0);
+                return this.result.value = total;
+            },
+            minus: function(){
+                var total = 0;
+                total =  parseInt(this.input_num1.value||0) - parseInt(this.input_num2.value||0);
+                return this.result.value = total;
+            },
+            multiply: function(){
+                var total = 0;
+                total =  parseInt(this.input_num1.value||0) * parseInt(this.input_num2.value||0);
+                return this.result.value = total;
+            },
+            divide: function(){
+                var total = 0;
+                total =  parseInt(this.input_num1.value||0) / parseInt(this.input_num2.value||0);
+                !isFinite(total) ? total = '숫자아님' : total = total;
+                return this.result.value = total;
+            }
+        }
+    </script>
+</body>
+</html>
