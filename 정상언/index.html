@@ -3,9 +3,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>계산기 정상언</title>
 </head>
 <body>
-    <div>연습 github</div>
+    <h3>단순 계산기</h3>
+    <div>    
+        <input type="text" id="txtNum1" value="5">
+    </div>
+    <div>  
+        <input type="button" id="btnPlus" value="+" onclick="myOper('+')">
+        <input type="button" id="btnPlus" value="-" onclick="myOper('-')">
+    </div>
+    <div>  
+        <input type="text" id="txtNum2" value="7">
+    </div>
+    <div>  
+        <input type="button" id="btnResult" value="=" onclick="myCalcu()">
+        <input type="button" id="btnInit" value="초기화" onclick="myOper('-')">
+    </div>
+    <hr>
+    <div>  
+        <label>과정</label>    
+    </div>
+    <div>   
+        <textarea name="" id="txtaProcess" cols="30" rows="10"></textarea>
+    </div>
+    <div>  
+        <label> 결과</label>    
+    </div>
+    <div>  
+        <input type="text" id="txtNum3" value="0">
+    </div>
+    
+    <script>
+        var op = "";
+
+        function myOper(mark){
+            op = mark;
+        }
+
+        function myCalcu(){
+            var input1 = document.getElementById("txtNum1");
+            var num1 = parseInt(input1.value);
+            var input2 = document.getElementById("txtNum2");
+            var num2 = parseInt(input2.value);
+            var input3 = document.getElementById("txtNum3");
+            var num3 = parseInt(input3.value);
+            
+            if (op =='+'){
+                num3 = num1 + num2;
+                input3.value = String(num3);
+
+            } else if (op =='-'){
+                num3 = num1 - num2;
+                input3.value = String(num3);
+
+            }
+
+        }
+    </script>
 </body>
 </html>
