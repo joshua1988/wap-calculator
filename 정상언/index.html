@@ -8,18 +8,18 @@
 <body>
     <h3>단순 계산기</h3>
     <div>    
-        <input type="text" id="txtNum1" value="5">
+        <input type="text" id="txtNum1" value="0">
     </div>
     <div>  
         <input type="button" id="btnPlus" value="+" onclick="myOper('+')">
         <input type="button" id="btnPlus" value="-" onclick="myOper('-')">
     </div>
     <div>  
-        <input type="text" id="txtNum2" value="7">
+        <input type="text" id="txtNum2" value="0">
     </div>
     <div>  
         <input type="button" id="btnResult" value="=" onclick="myCalcu()">
-        <input type="button" id="btnInit" value="초기화" onclick="myOper('-')">
+        <input type="button" id="btnInit" value="초기화" onclick="myInit()">
     </div>
     <hr>
     <div>  
@@ -59,6 +59,20 @@
                 input3.value = String(num3);
 
             }
+
+        }
+
+        function myInit(){
+            var input1 = document.getElementById("txtNum1");
+            var num1 = parseInt(input1.value);
+            var input2 = document.getElementById("txtNum2");
+            var num2 = parseInt(input2.value);
+            var input3 = document.getElementById("txtNum3");
+            var num3 = parseInt(input3.value);
+
+            input1.value = '0';
+            input2.value = '0';
+            input3.value = '0';
 
         }
     </script>
