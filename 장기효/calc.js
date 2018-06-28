@@ -1,4 +1,3 @@
-
   // document.getElementsByName result ? 
 document.querySelector('.calculator').addEventListener('click', calculator);
 document.querySelector('.minus').addEventListener('click', minus);
@@ -8,11 +7,6 @@ document.querySelector('.init').addEventListener('click', init);
 var operatorOptionChildren = document.querySelector('.operatorOption').children;
 
 var fnBtnChildren = document.querySelector('.fnBtn').children;
-
-// operatorOptionChildren.forEach(element => {
-//   element.addEventListener('mousedown', mouseDown);
-  
-// });
 
 for(var i=0; i < operatorOptionChildren.length; i++){
   // console.log(operatorOptionChildren[i]);
