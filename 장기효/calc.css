@@ -1,0 +1,57 @@
+.calcBox{
+  border: 1px solid #9E9E9E;
+  padding: 15px;
+  width: 300px;
+}
+
+
+.historyNResult{
+  background-color: #f7f0ac;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+
+.formula{
+  display: table;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.operator{
+    margin: 0px 10px;
+}
+
+.operatorOption{
+  margin-bottom: 10px;
+}
+
+.operatorOption > div {
+  display: inline-block;
+  border: 1px solid #9E9E9E;
+  /* background-color: #f7f0ac; */
+  text-align: center;
+  padding: 5px 10px;
+  margin-left: 10px;
+}
+
+
+.fnBtn > div {
+  display: inline-block;
+  border: 1px solid #9E9E9E;
+  text-align: center;
+  padding: 5px 10px;
+  margin-left: 10px;
+}
+
+.calculator{
+    
+}
+
+.init{
+    
+}
+
+.mouseDown{
+  background-color: #99956c;
+}

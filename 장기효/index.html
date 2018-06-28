@@ -3,73 +3,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="calc.css">
   <title>계산기 과제 - 윤재윤</title>
 </head>
 <body>
   <!-- 2개의 숫자를 입력 받는 인풋 박스
 입력한 2개의 숫자를 연산하는 덧셈(+), 뺄셈(-) 기능
-계산 과정과 결과를 화면에 출력 -->
+계산 과정과 결과를 화면에 출력 -->  
 
-<!--
-  
-  ######################################################
-  ######################################################
-  ######################################################
-  아직 미완성 입니다. git 공부하다가 모르고 pull request 눌렀습니다.
-  ######################################################
-  ######################################################
-  ######################################################
--->
-  <div>
-    <div class='calHistory'></div>
-    <div class='calResult'></div>
-    <input class='txt1' type='text1'>
-    <span class='operation'></span>
-    <input class='txt2' type='text2'>
+  <div class='calcBox'>
+    <div class='historyNResult'>
+      <div>
+        <span> 과정 : </span>
+        <span class='calHistory'></span>
+      </div>
+      <div>
+        <span>결과 : </span>
+        <span class='calResult'></span>
+      </div>
+    </div>
 
-    <div class='minus'> - </div>
-    <div class='plus'> + </div>
+    <div class='formula'>
+      <input class='operand1' type="number" min="0" oninput="validity.valid||(value='');">
+      <span class='operator'></span>
+      <input class='operand2' type="number" min="0" oninput="validity.valid||(value='');">
+    </div>
+    
+    <div class='operatorOption'>
+      <div class='minus'> - </div>
+      <div class='plus'> + </div>
+    </div>
+    
 
-    <div class='calculator'> 계산 </div>
+    <div class='fnBtn'>
+      <div class='calculator'>계산</div>
+      <div class='init'>초기화</div>
+    </div>
+    
+    <div class='number'>
+      <!-- 1. js, foreach, append 
+           2. key/mouse, down/up -->
+      <!-- <div data-key="48" class="key">
+        <kbd>0</kbd>
+      </div> -->
+    </div>
 
 
   </div>
-  <script>
-    // document.getElementsByName result ? 
-    document.querySelector('.calculator').addEventListener('click', calculator);
-    document.querySelector('.minus').addEventListener('click', minus);
-    document.querySelector('.plus').addEventListener('click', plus);
+  <script src="calc.js"></script>
 
-
-    function calculator(){
-      var txt1 = document.querySelector('.txt1');
-      var txt2 = document.querySelector('.txt2');
-
-
-      var calResult = 0; 
-      var calHistory = '';
-
-      if(document.querySelector('.operation').innerHTML == '+'){
-        calResult = parseInt(txt1.value) + parseInt(txt2.value);
-        calHistory = txt1.value+''+ '+' + txt2.value+'';
-      }else if(document.querySelector('.operation').innerHTML == '-'){
-        calResult = parseInt(txt1.value) - parseInt(txt2.value);
-        calHistory = txt1.value+''+ '-' + txt2.value+'';
-      }
-
-      document.querySelector('.calHistory').innerHTML = calHistory;
-      document.querySelector('.calResult').innerHTML = calResult;
-
-
-    }
-
-    function minus(){
-      document.querySelector('.operation').innerHTML = '-';
-    }
-
-    function plus(){
-      document.querySelector('.operation').innerHTML = '+';
-    }
-  </script>
 </body>
 </html>
