@@ -1,27 +1,41 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <link rel="stylesheet" href="./main.css">
     <title>WAP-Calculator</title>
 </head>
 
 <body>
     <header>
-        <h2>채호경 계산기 과제 제출</h2>
+        <h5>채호경 계산기 과제 제출</h5>
     </header>
-    <h3>-숫자 두 개를 입력하세요</h3>
+    <h6>-숫자 두 개를 입력하세요</h6>
     <div class="inputElements">
-        <input type="number" placeholder="number only" name="firstNum" autofocus>
-        <div>&</div>
-        <input type="number" placeholder="number only" name="secondNum">
+        <div class="inputNum">
+            <input type="number" placeholder="number only" name="firstNum" autofocus>
+        </div>
+        <div class="inputNum">
+            <input type="number" placeholder="number only" name="secondNum">
+        </div>
     </div>
     <div class="resultElements">
-        <div>덧셈 결과: <span class="addResult"></span></div>
-        <div>뺄셈 결과: <span class="subResult"></span></div>
+        <div>덧셈 결과:
+            <span class="addResult"></span>
+        </div>
+        <div>뺄셈 결과:
+            <span class="subResult"></span>
+        </div>
     </div>
+
     <script src="./main.js"></script>
+
 </body>
 
 </html>

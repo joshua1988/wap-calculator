@@ -7,12 +7,12 @@ header {
     display: flex;
 }
 
-header>h2 {
+header>h5 {
     align-self: center;
     border-bottom: 5px solid #ffabab;
 }
 
-h3 {
+h6 {
     text-align: start;
 }
 
@@ -22,7 +22,7 @@ input[type="number"]::-webkit-inner-spin-button {
     margin: 0;
 }
 
-input {
+.inputNum {
     width: 40%;
     border-radius: 4px;
     font-size: 50px;
