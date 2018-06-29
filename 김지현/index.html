@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+    <head>
+        <title>FastCampus Calculator</title>
+    </head>
+
+    <style>
+        .calculator {
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        var oper;
+
+        function onEnterKeyHandler(event) {
+            if(event == null || event.keyCode != 13)
+                return;
+
+            calculate();
+        }
+
+        function calculate() {
+            let result = document.getElementById('result');
+
+            // 1. 결과값 초기화
+            result.innerHTML = '';
+
+            // 2. 값 Validation check
+            if(!inputValidate(1) || !inputValidate(2))
+                return;
+
+            if(oper == null || oper == "") {
+                alert('연산자를 선택해주세요.')
+                return;
+            }
+
+            // 3. 연산            
+            let num1 = Number(document.getElementById('num1').value);
+            let num2 = Number(document.getElementById('num2').value);
+            let resultStr = `${num1} ${oper} ${num2}`;
+            let resultNum = eval(resultStr);
+            result.innerHTML = `${resultStr} = ${resultNum}`;
+        }
+
+        function inputValidate(idx, alertFlag) {
+            let num = document.getElementById(`num${idx}`).value;
+            if(num == null || num == "" || Number(num) == undefined) {
+                if(alertFlag == null || alertFlag == true) alert(`${idx}번 값을 확인해주세요.`);
+                return false;
+            }
+
+            return true;
+        }
+
+        function settingOperator(op) {
+            oper = op;
+            if(inputValidate(1, false) && inputValidate(2, false))
+                calculate();
+        }
+    </script>
+    
+    <body>
+        <div class="calculator">
+            <input type="number" id="num1" onkeydown="onEnterKeyHandler(event)" placeholder="1번값"/>
+            <button onclick="settingOperator('+')">+</button>
+            <button onclick="settingOperator('-')">-</button>
+            <input type="number" id="num2" onkeydown="onEnterKeyHandler(event)" placeholder="2번값"/>
+        </div>
+        <div class="result" id="result"></div>
+    </body>
+</html>
