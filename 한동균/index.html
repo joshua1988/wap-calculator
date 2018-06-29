@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+  <input type="number" id="input1" value="1">
+  <select id="operator">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+  </select>  
+  <input type="number" id="input2" value="2">
+  <button onclick="myFunction()">Try it</button>
+  <h1 id="result"> Result </h1>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("input1").value;
+    var op = document.getElementById("operator").value;
+    var y = document.getElementById("input2").value;
+    var result;
+    x = Number(x);
+    y = Number(y);
+     
+    switch(op) {
+      case '+':
+        result = x + y;
+        break;
+      case '-':
+        result = x - y;
+        break;
+      case '*':
+        result = x * y;
+        break;
+       case '/':
+        result = x / y;
+        break;
+      default:
+        result = 0;
+     
+    }
+  
+    document.getElementById("result").innerHTML = result;
+}
+</script>
+  
+</body>
+</html>
