@@ -3,16 +3,74 @@
 <head>
   
   <title>test</title>
-
+  <style type="text/css">
+    
+      .btn{font-weight:bold; font-size:9pt; background-color:white; padding-top:3px;width:40}
+    
+    </style>
+    
+    <script language="JavaScript">
+    
+      function cal(num){
+        myform.screen.value += num;
+      }
+    
+      function answer(){
+        try{
+          //myform.screen.value = eval(document.myform.screen.value);
+          myform.screen.value = new function(document.myform.screen.value);
+        }catch(e){alert('잘못된 연산오류 ㅋ')}
+      }
+    
+      function clearcal(){
+        myform.screen.value = "";
+      }
+    
+    </script>
   
 </head>
 
-<body>
-
-  <header>
-    <h1>Push Codelab</h1>
-  </header>
-
-  
+<body> 
+    <form name="myform">
+    <table border="0" bgcolor="#eeeeee" cellspacing="0" cellpadding="5" style="border-width:1px; border-color:black; border-style:solid;" align="center">
+      <tr>
+      <td height="0" bgcolor="#E2E2E2"><input type="text" name="screen" size="23"> </td>
+      </tr>
+      <tr>
+      <td>
+      <input type="button" value=" 7 " onclick="cal('7')" class="btn">
+      <input type="button" value=" 8 " onclick="cal('8')" class="btn">
+      <input type="button" value=" 9 " onclick="cal('9')" class="btn">
+      <input type="button" value=" + " onclick="cal('+')" class="btn">
+      </td>
+      </tr>
+      <tr>
+      <td>
+      <input type="button" value=" 4 " onclick="cal('4')" class="btn">
+      <input type="button" value=" 5 " onclick="cal('5')" class="btn">
+      <input type="button" value=" 6 " onclick="cal('6')" class="btn">
+      <input type="button" value=" * " onclick="cal('*')" class="btn">
+      </td>
+      </tr>
+      <tr>
+      <td>
+      <input type="button" value=" 1 " onclick="cal('1')" class="btn">
+      <input type="button" value=" 2 " onclick="cal('2')" class="btn">
+      <input type="button" value=" 3 " onclick="cal('3')" class="btn">
+      <input type="button" value=" / " onclick="cal('/')" class="btn">
+      </td>
+      </tr>
+      <tr>
+      <td>
+      <input type="button" value=" 0 " onclick="cal('0')" class="btn">
+      <input type="button" value=" . " onclick="cal('.')" class="btn">
+      <input type="button" value=" C " onclick="clearcal()" class="btn">
+      <input type="button" value=" = " onclick="answer()" class="btn">
+      </td>
+      </tr>
+    </table>
+    </form>
+    
+    <p align="center">[ 자바스크립트 계산기 ]<p>
 </body>
 </html>
