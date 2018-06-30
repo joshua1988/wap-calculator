@@ -1,0 +1,51 @@
+/* * {
+    border: 1px solid;
+} */
+
+header {
+    height: 20%;
+    display: flex;
+}
+
+header>h5 {
+    align-self: center;
+    border-bottom: 5px solid #ffabab;
+}
+
+h6 {
+    text-align: start;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.inputNum {
+    width: 40%;
+    border-radius: 4px;
+    font-size: 50px;
+}
+
+.inputElements {
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.resultElements {
+    height: 30%;
+    ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.result {
+    color: #ffabab;
+    font-weight: bold;
+    font-size: 50px;
+}
