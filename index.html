@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <div>
+        <p>Calculator 패캠5기 김정규</p>
+        <div class="wrapper">
+            <div class="input">
+                <input type="text" id="display" />
+            </div>
+            <div class="pad">
+                <button class="ac" onclick="reset()"> AC </button>
+                <button class="op" onclick="pressOp('/')"> / </button>
+                <button class="num" onclick="pressNum(7)"> 7 </button>
+                <button class="num" onclick="pressNum(8)"> 8 </button>
+                <button class="num" onclick="pressNum(9)">  9 </button>
+                <button class="op" onclick="pressOp('*')">  x </button>
+                <button class="num" onclick="pressNum(4)">  4 </button>
+                <button class="num" onclick="pressNum(5)">  5 </button>
+                <button class="num" onclick="pressNum(6)">  6 </button>
+                <button class="op" onclick="pressOp('-')">  - </button>
+                <button class="num" onclick="pressNum(1)">  1 </button>
+                <button class="num" onclick="pressNum(2)">  2 </button>
+                <button class="num" onclick="pressNum(3)">  3 </button>
+                <button class="op" onclick="pressOp('+')">  + </button>
+                <button class="zero" onclick="pressNum(0)">  0 </button>
+                <button class="num" onclick="pressNum('.')">  . </button>
+                <button class="op" onclick="result()">  = </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<style scoped>
+    body {
+        text-align: center;
+    }
+    
+    .wrapper {
+        width: 400px;
+        height: 540px;
+        margin: 0 auto;
+        background-color: #3f3e3e;
+        border-radius: 30px;
+    }
+    
+    .wrapper .input {
+        padding: 20px;
+    }
+    
+    .wrapper .input input {
+        width: 315px;
+        font-size: 40px;
+        text-align: right;
+        padding: 2px 5px 2px 2px;
+        background-color: #ededed;
+        border-radius: 20px;
+    }
+    
+    .wrapper .input input:hover {
+        opacity: 0.8;
+    }
+    
+    .wrapper .pad {
+        width: 350px;
+        margin: 0 auto;
+        padding: 10px;
+    }
+    
+    .wrapper .pad button {
+        width: 70px;
+        height: 70px;
+        border-radius: 50px;
+        font-size: 30px;
+        margin: 5px;
+    }
+    
+    .wrapper .pad button:hover {
+        cursor: pointer;
+        opacity: 0.7;
+    }
+    
+    .wrapper .pad .op {
+        background-color: #157efb;
+        border: #157efb;
+        color: #fff;
+    }
+    
+    .wrapper .pad .ac {
+        width: 240px;
+        background-color: #fca741;
+        border: #fca741;
+    }
+    
+    .wrapper .pad .zero {
+        width: 150px;
+    }
+    
+    .wrapper .pad .num,
+    .wrapper .pad .zero {
+        border: #fff;
+        background-color: #fff;
+    }
+</style>
+
+<script>
+    var display = document.getElementById('display');
+    var temp;
+    var result;
+    var can;
+
+    function cal(num) {
+        document.fast.screen.value += num;
+    }
+
+    function reset() {
+        display.value = "";
+    }
+
+    function pressNum(num) {
+        if (num == '.') {
+            display.value += num;
+        } else if (display.value === 0) {
+            display.value = num;
+        } else {
+            display.value += num;
+        }
+
+        can = true;
+    }
+
+    function pressOp(item) {
+        temp = display.value + item;
+        display.value = "";
+
+        can = false;
+    }
+
+    function result() {
+        console.log(display.value);
+        if (can != true) {
+            display.value = 'press AC';
+        } else {
+            display.value = eval(temp + display.value);
+        }
+    }
+</script>
