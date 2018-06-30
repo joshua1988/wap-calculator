@@ -1,0 +1,116 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>계산기 정상언</title>
+
+    <style>
+        div {
+            margin: 10px;
+        }
+        input{
+            font-size: 20px;
+        }
+        input.numRight{
+            text-align: right;
+        }
+        input.sign{
+            width: 50px;
+        }
+        #btnInit{
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>단순 계산기</h1>
+    <div>    
+        <input type="text" class='numRight' id="txtNum1" value=''>
+    </div>
+    <div>  
+        <input type="button" class='sign' id="btnPlus" value="+" onclick="myOper('+')">
+        <input type="button" class='sign' id="btnPlus" value="-" onclick="myOper('-')">
+    </div>
+    <div>  
+        <input type="text" class='numRight' id="txtNum2" value='' >
+    </div>
+    <div>  
+        <input type="button" class='sign' id="btnResult" value="=" onclick="myCalcu()">
+    </div>
+    <hr>
+    <div>  
+        <label> 결과</label>    
+        <input type="text" class='numRight' id="txtNum3" value="0">
+        <input type="button" id="btnInit" value="초기화" onclick="myInit()">
+    </div>
+    <hr>    
+    <div>  
+        <label>과정</label>    
+    </div>
+    <div id='my-div'>   
+        <ul id='my-ul'>
+        </ul>
+    </div>
+    
+    <script>
+        var op = "+"; //기본값 "+"
+
+        function myOper(mark){
+            op = mark;
+        }
+        
+        //계산
+        function myCalcu(){
+            var txtNum1 = document.getElementById("txtNum1");
+            var num1 = parseInt(txtNum1.value);
+            var txtNum2 = document.getElementById("txtNum2");
+            var num2 = parseInt(txtNum2.value);
+            var txtNum3 = document.getElementById("txtNum3");
+            var num3 = parseInt(txtNum3.value);
+
+            if (op =='+'){
+                
+                num3 = num1 + num2;
+                txtNum3.value = String(num3);
+
+            } else if (op =='-'){
+                num3 = num1 - num2;
+                txtNum3.value = String(num3);
+
+            }
+            
+            // 요소 추가 
+            var newLi = document.createElement('li');
+            var nexText = document.createTextNode(txtNum1.value + op + txtNum2.value + '=' + txtNum3.value);
+            newLi.appendChild(nexText);
+            document.getElementById('my-ul').appendChild(newLi);
+
+        }
+        
+        //초기화
+        function myInit(){
+            var txtNum1 = document.getElementById("txtNum1");
+            var num1 = parseInt(txtNum1.value);
+            var txtNum2 = document.getElementById("txtNum2");
+            var num2 = parseInt(txtNum2.value);
+            var txtNum3 = document.getElementById("txtNum3");
+            var num3 = parseInt(txtNum3.value);
+
+            txtNum1.value = '';
+            txtNum2.value = '';
+            txtNum3.value = '0';
+
+            clearEle();
+
+        }
+
+        //요소 삭제
+        function clearEle(){
+            var parent = document.getElementById('my-ul');
+            parent.innerHTML = '';
+
+        }
+    </script>
+</body>
+</html>
