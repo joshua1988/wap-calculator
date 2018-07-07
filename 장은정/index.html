@@ -1,0 +1,92 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>계산기 과제 - 장은정</title>
+    <style type="text/css">
+    * {
+        box-sizing: border-box;
+    }
+    .calculator {
+        border: 1px solid black;
+        padding: 5px;
+        padding: 30px;
+    }
+    .calculator01, .calculator02 {
+        margin-bottom: 30px;
+    }
+    .calplus,
+    .calminus, .calbtn div {
+        border: 1px solid black;
+        padding: 10px;
+        margin-left: 10px;
+         display: inline-block;
+         cursor: pointer;
+    }
+    .calbtn{
+          display: inline-block;
+    }
+    </style>
+    <script type="text/javascript">
+        function fnbtncal(){
+              var number01 = document.querySelector('.number01');
+              var number02 = document.querySelector('.number02');
+              var operator = document.querySelector('.operator');
+
+              var calend = 0; 
+              var calpro = '';
+
+              if(operator.innerHTML == '+'){
+                  calpro = number01.value+''+ '+' + number02.value+'';
+                  calend = parseInt(number01.value) + parseInt(number02.value);
+              }else if(operator.innerHTML == '-'){
+                  calpro = number02.value+''+ '-' + number01.value+'';
+                  calend = parseInt(number02.value) - parseInt(number01.value);
+              }else{
+                  calpro='';
+                  calend=0;s
+              }
+
+                document.querySelector('.calprocess').innerHTML = calpro;
+                document.querySelector('.calresult').innerHTML = calend;
+            }
+
+           function fnbtnplus(){
+                document.querySelector('.operator').innerHTML = '+';
+           }
+           function fnbtnminus(){
+                document.querySelector('.operator').innerHTML = '-';
+           }
+           function fnbtnclear(){
+                document.querySelector('.calprocess').innerHTML = '';
+                document.querySelector('.calresult').innerHTML = '';
+           }
+</script>
+ 
+</head>
+<body>
+    <body>
+    <div class="calculator">
+         
+        <div class="calculator01">
+            <label>VALUE 1 </label>
+            <input type="text" class="number01" min="0">
+            <span class="operator"></span></span>
+            <label>VALUE 2 </label>
+            <input type="text" class="number02" min="0">
+        </div>
+        <div class="calculator02">
+            <span class="calplus" onclick="fnbtnplus()">+</span>
+            <span class="calminus" onclick="fnbtnminus()">-</span>
+        </div>
+        <div class="calbtn">
+            <div class="btn_cal" onclick="fnbtncal()">계산</div>
+            <div class="btn_clear" onclick="fnbtnclear()">clear</div>
+            <label>과정 : </label><span class="calprocess"></span><label>결과 : </label><span class="calresult"></span>
+        </div>
+    </div>
+ 
+</body>
+</body>
+</html>
