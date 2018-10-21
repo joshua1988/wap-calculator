@@ -1,0 +1,53 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>덧셈 뺄샘 계산기</title>
+    <script>
+        function calculator() {
+            if(isNaN(document.querySelector('#num1').value) || document.querySelector('#num1').value == "") {
+                alert("숫자를 입력하세요.");
+                document.querySelector('#num1').focus();
+                return false;
+            }
+            if(isNaN(document.querySelector('#num2').value) || document.querySelector('#num2').value == "") {
+                alert("숫자를 입력하세요.");
+                document.querySelector('#num2').focus();
+                return false;
+            }
+
+            var str = document.querySelector('#num1').value + " " + document.querySelector('#operator').value + " " + document.querySelector('#num2').value;
+            var cal = 0;
+
+            if(document.querySelector('#operator').value == "+") {
+                // 덧셈
+               cal = Number(document.querySelector('#num1').value) + Number(document.querySelector('#num2').value);
+            }
+            else {
+                // 뺄셈
+                cal = Number(document.querySelector('#num1').value) - Number(document.querySelector('#num2').value);
+            }
+            
+            document.querySelector('#num1').value = ""; // 숫자1 입력값 초기화
+            document.querySelector('#num2').value = ""; // 숫자2 입력값 초기화
+            str += " = " + cal;
+            // 결과에 덧붙이기
+            document.querySelector('#result').innerHTML += "<div style='padding : 2 2;'>" + str + "</div>";
+        }
+    </script>
+</head>
+<body>
+    <div style="width: 50%;">
+        <h2>덧셈 뺄샘 계산기 by 권영달</h2>
+        <input type="text" id="num1" value="" style="width:50px">
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+        </select>
+        <input type="text" id="num2" value="" style="width:50px">
+        <button id="calculation" onclick="calculator()">=</button>
+        <div id="result"></div>
+    </div>
+</body>
+</html>
