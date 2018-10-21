@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>계산기 과제 - 조효준</title>
+</head>
+<body>
+    <link rel="stylesheet" href="./css/index.css">
+    
+    <div class="clbox">
+      <input type="text" id="add">
+      <input type="text" id="minus">
+      <button onclick="add()" >+</button>
+      <button onclick="minus()" >-</button>
+  </br>
+    <fieldset>
+        <legend>
+          <h3>결과</h3>
+          <div id="resultData"></div>
+        </legend>
+      </fieldset>
+  </div>
+</body>
+
+<script>
+
+  function inputDataCheke(){
+    var inputDatas={};
+    inputDatas.input1 = Number(document.getElementById("add").value);
+    inputDatas.input2 = Number(document.getElementById("minus").value);
+
+    if(isNaN(inputDatas.input1 && inputDatas.input2 )){
+      return alert('숫자만 입력요망!');
+    };
+
+    if(0 >= (inputDatas.input1 && inputDatas.input2)){
+      alert('정확한 데이터 입력 요망!');
+      throw new TypeError('type Error');
+    };
+    return inputDatas;
+  };
+
+  function add(){
+    try{
+    var inputDatas = inputDataCheke();
+    }catch(e){
+      console.log(e.message);
+      return;
+    };
+    var sum = inputDatas.input1 + inputDatas.input2 ;
+    document.getElementById("resultData").innerHTML = inputDatas.input1 + " + " + inputDatas.input2 + " = " + sum;
+  };
+
+  function minus(){
+    try{
+       var inputDatas = inputDataCheke();
+    }catch(e){
+      console.log(e.message);
+      return;
+    };
+    var minus = inputDatas.input1  - inputDatas.input2 ;
+    document.getElementById("resultData").innerHTML = inputDatas.input1 + " - " + inputDatas.input2 + " = " + minus;
+  }
+</script>
+</html>
