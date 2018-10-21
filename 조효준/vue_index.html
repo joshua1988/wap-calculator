@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>계산기 과제 - 조효준 Vue && Vuetiry</title>
+</head>
+<body>
+        <div id="app">
+            <v-app>
+                <v-content>
+                  <v-container grid-list-xl>
+                        <v-layout>
+                            <v-flex xs12 sm6 offset-sm3>
+                                <div class="text-xs-center">
+                                  <v-card>
+                                    <v-layout row wrap>
+                                        <v-flex xs12 sm6>
+                                            <v-text-field solo-inverted label="Num1" v-model="Num1"></v-text-field>
+                                        </v-flex>
+                                        <v-flex xs12 sm6>
+                                            <v-text-field solo-inverted label="Num2" v-model="Num2"></v-text-field>
+                                        </v-flex>
+                                    </v-layout>
+                                    <v-card-title primary-title>
+                                        <div class="grid-list-md text-xs-center">
+                                            <v-chip><v-icon large color="green darken-2">exposure</v-icon></v-chip> 
+                                            <div class="headline text-xs-center md-5"> {{Num1}} {{Oper}} {{Num2}} = {{result}}</div>
+                                        </div>
+                                    </v-card-title>
+                                    <v-card-actions>
+                                        <v-btn color="primary" dark @click="plusBtn">Plus
+                                            <v-icon>add</v-icon>
+                                        </v-btn>
+                                        <v-btn color="red" dark @click="minusBtn">Minus
+                                            <v-icon dark right>remove</v-icon>
+                                         </v-btn>
+                                    </v-card-actions>
+                                  </v-card>
+                                </div>
+                            </v-flex>
+                        </v-layout>
+                    </v-container>
+                </v-content> 
+            </v-app>
+        </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+
+<script>
+    new Vue({ el: '#app',
+        data:{
+            Num1: 0,
+            Num2: 0,
+            Oper: '?',
+            result: '?',
+        },
+        methods: {
+            plusBtn: function (){
+                this.result = Number(this.Num1) + Number(this.Num2);
+                this.Oper = '+';
+            },
+            minusBtn: function (){
+                this.result = Number(this.Num1) - Number(this.Num2);
+                this.Oper = '-'; 
+            }
+        }
+    });//Vue
+  </script>
+</html>
