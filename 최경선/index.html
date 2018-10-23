@@ -1,0 +1,58 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>계산기 과제 - 최경선</title>
+    <style>
+        body,input,fieldset,button{margin:0;padding:0;font-family:'돋움',dotum,sans-serif;}        
+        .wrap{padding:20px}
+        fieldset{padding:10px;border:2px solid #444}
+        input[type='number']{width:120px;height:30px;padding:0 5px;font-size:15px;line-height:30px;vertical-align:middle}
+        button{width:30px;height:30px;border:0;background:#444;color:#fff;font-size:20px;font-weight:bold;line-height:20px;vertical-align:middle}
+        .result_area{margin-top:20px}
+        #result{color:#f00;font-weight:bold}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h1>계산기</h1>                
+        <div class="calculator_area">
+            <fieldset>
+                <legend>계산식을 입력하세요.</legend>
+                <label for="num1"></label>
+                <input type="number" id="num1">
+                <label for="num2"></label>
+                <input type="number" id="num2">
+                <button type="button" id="btnPlus" title="더하기">+</button>        
+                <button type="button" id="btnMinus" title="빼기">-</button>  
+            </fieldset>      
+        </div>            
+        <div class="result_area">
+            <strong>결과값 :</strong> <span id="result"></span>
+        </div>
+    </div>
+    
+    <script>
+        var elBtnPlus = document.getElementById('btnPlus'),
+            elBtnMinus = document.getElementById('btnMinus'),
+            elResult = document.getElementById('result');
+
+        function binomialCaculate(calculator) {
+            var num1 = parseFloat(document.getElementById('num1').value) || 0,
+                num2 = parseFloat(document.getElementById('num2').value) || 0;                
+            
+            elResult.innerHTML = calculator(num1, num2);
+        }        
+    
+        elBtnPlus.addEventListener('click', function(){
+            binomialCaculate(function(a,b){ return a + b; });
+        }, false);
+        
+        elBtnMinus.addEventListener('click', function(){
+            binomialCaculate(function(a,b){ return a - b; });
+        }, false);
+        
+    </script>
+</body>
+</html>
