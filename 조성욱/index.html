@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>계산기 과제 - 조성욱</title>
+  <style>
+  h1{
+    text-align: center;
+  }
+  </style>
+</head>
+<body>
+  <h1>간단한 계산기</h1>
+  <div align="center">
+     <input type="text" id="num1">
+     <input tpye="text" id="num2">
+  </div>
+  <div align="center">
+    <input type="button" value="+" onclick="calculator('+');">
+    <input type="button" value="-" onclick="calculator('-');">
+    <br>
+    결과 : <input id="outresult" type="text" readonly="readonly">
+  </div>
+  <script>
+    function calculator(op) {
+      var result;
+      var number1 = document.getElementById("num1").value;
+      var number2 = document.getElementById("num2").value;
+      var out = document.getElementById("outresult")
+      if(op=='+'){
+        result = parseInt(number1) +parseInt(number2);
+      }
+      else if(op=='-')
+      {
+        result = number1 - number2;
+      }
+      out.value = String(result);
+    }
+  </script>
+</body>
+</html>
