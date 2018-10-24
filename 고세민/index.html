@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+      * {
+          font-size: 16px;
+      }
+      input,
+      select,
+      button {
+          height: 2rem;
+      }
+      input {
+          padding: 0 5px;
+      }
+      button {
+          background: #e3e3e3;
+      }
+  </style>
+  <title>계산기 과제 - 고세민</title>
+</head>
+<body>
+    <input id="firstNum">
+    <select name="" id="selectCalc">
+        <option value="+">+</option>
+        <option value="-">-</option>
+    </select>
+    <input id="secondNum">
+    <button id="calc">계산</button>
+    <input id="result">
+    <button id="reset">초기화</button>
+    <script>
+        var calcButton = document.getElementById('calc');
+        var resetButton = document.getElementById('reset');
+        var result = document.getElementById('result');
+        var firstNum = document.getElementById('firstNum');
+        var secondNum = document.getElementById('secondNum');
+        
+        calcButton.addEventListener('click', function() {
+            calc();
+        })
+
+        resetButton.addEventListener('click', function () {
+            reset();
+        })
+
+        function  calc () {
+            
+            var selectCalc = document.getElementById('selectCalc').value;
+            if (selectCalc === '+') {
+                result.value = (firstNum.value*1 + secondNum.value*1).toString();
+            } else {
+                result.value = (firstNum.value*1 - secondNum.value*1).toString();
+            }
+
+            if (result.value === 'NaN') {
+                result.value = '숫자만 입력가능'
+            }
+        }
+
+        function reset () {
+            result.value = '';
+            firstNum.value = '';
+            secondNum.value = '';
+        }
+
+    </script>
+</body>
+</html>
