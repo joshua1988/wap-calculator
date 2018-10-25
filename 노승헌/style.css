@@ -1,0 +1,14 @@
+input {
+    height: 25px;
+}
+
+button {
+    height: 30px;
+}
+
+div.result {
+    background-color: powderblue;
+    width: 355px;
+    height: 30px;
+    vertical-align: middle;
+}
