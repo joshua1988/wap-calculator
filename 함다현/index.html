@@ -1,0 +1,95 @@
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>계산기 과제 - 함다현</title>
+<style>
+ul{list-style:none}
+ul,li,button{margin:0;padding:0}
+.calculator{width:500px;padding:20px;background:#100a1c;font-family:Arial,verdana,sans-serif}
+.num_bx{font-size:0}
+.num_bx .inp_txt{display:inline-block;width:230px;vertical-align:middle}
+.num_bx .inp_txt input{display:block;width:100%;height:50px;padding:0 10px;border:0;background:rgba(42, 50, 113, 0.28);font-size:35px;color:#c97874;text-align:center;letter-spacing:-.05em;box-sizing:border-box}
+.num_bx .v_ops{display:inline-block;width:40px;font-size:25px;text-align:center;vertical-align:middle;color:#6cacc5}
+.btn_bx{margin:15px -5px;font-size:0}
+.btn_bx ul{display:table;width:100%;table-layout:fixed}
+.btn_bx li{display:table-cell;width:33.33%;padding:0 5px;box-sizing:border-box}
+.btn_bx .btn{display:block;width:100%;height:50px;border:0;background:rgba(42, 50, 113, 0.28);font-size:25px;font-weight:bold;color:#6cacc5;box-sizing:border-box;cursor:pointer}
+.viewer{height:50px;font-size:45px;color:#c97874;text-align:right;line-height:50px;letter-spacing:-.05em}
+</style>
+</head>
+<body>
+<div class="calculator">
+	<div class="num_bx">
+		<span class="inp_txt"><input type="text" id="num1" name="num" value="" title="첫번째 숫자 입력칸" class="num"></span>
+		<span id="v_ops" class="v_ops">??</span>
+		<span class="inp_txt"><input type="text" id="num2" name="num" value="" title="두번째 숫자 입력칸" class="num"></span>
+	</div>
+	<div class="btn_bx">
+		<ul>
+			<li><button id="plus" data-ops="plus" class="btn ops">+</button></li>
+			<li><button id="minus" data-ops="minus" class="btn ops">-</button></li>
+			<li><button type="button" id="equals" class="btn equals">=</button></li>
+		</ul>
+	</div>
+	<div id="viewer" class="viewer"></div>
+</div>
+<script>
+(function() {
+	var viewer = document.getElementById("viewer"),
+		equals = document.getElementById("equals"),
+		theNum = "", 
+		oldNum = "",
+		resultNum,
+		operator;
+
+	function setNum(){
+   		var theNum = document.getElementById("num1").value,
+   			oldNum = document.getElementById("num2").value,
+			ntheNum = parseFloat(theNum),
+   			noldNum = parseFloat(oldNum);
+   		// var resultNum = parseFloat(theNum) + parseFloat(oldNum);      
+
+   		switch (operator) {
+			case "plus":
+			resultNum = noldNum + ntheNum;
+			break;
+
+			case "minus":
+			resultNum = noldNum - ntheNum;
+			break;
+
+			default:
+			resultNum = ntheNum;
+			break;
+		}
+
+		if(theNum === "" || oldNum === "") {
+			alert("숫자를 입력해 주세요");
+			return;
+		}
+
+		document.getElementById("viewer").innerHTML = resultNum;
+	}
+
+	document.querySelectorAll('.ops').forEach(function(elem) {
+	    elem.addEventListener("click", function() {
+	    	operator = this.getAttribute('data-ops');
+
+	    	if(operator === 'plus'){
+	    		document.getElementById("v_ops").innerHTML = "+";
+	    	}else if(operator === 'minus'){
+	    		document.getElementById("v_ops").innerHTML = "-";
+	    	}
+	  		console.log(operator);
+	    });
+	});
+
+	equals.addEventListener('click', setNum);
+
+	viewer.innerHTML = "0";
+}());
+</script>
+</body>
+</html>
