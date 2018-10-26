@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>계산기 과제 - 배경완</title>
+
+    <script>
+        function calc() {
+            var result = 0;
+            var num1 = Number(document.getElementById("firstNum").value);
+            var num2 = Number(document.getElementById("secondNum").value);
+            var op = document.getElementById("opType").value;
+            var retText = document.getElementById("retText");
+
+            if(op=="+"){
+                result = num1 + num2;             
+            }
+            else{
+                result = num1 - num2;            
+            }
+            retText.innerHTML = "RESULT : " + result;
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <input type="text" id="firstNum" value="0">        
+        <select id="opType">
+            <option value="+" selected="selected">+</option>
+            <option value="-">-</option>
+        </select>  
+        <input tpye="text" id="secondNum" value="0">
+        <input type="button" id="retBtn" value="계산결과" onclick="calc()">
+        <br>
+        <h1 id="retText"></h1>
+     </div>
+</body>
+</html>
