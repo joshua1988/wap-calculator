@@ -1,0 +1,188 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>계산기 과제 - 김응천</title>
+</head>
+
+<style>
+    .waves-effect {
+        width: 25%;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="card-panel grey lighten-5">
+            <div>
+                <input type="text" id='data' value='0' class='right-align' readonly>
+            </div>
+
+            <table class="centered">
+                <tr>
+                    <td class="waves-effect waves-orange" onclick="btnClick('7')">7</td>
+                    <td class='waves-effect waves-orange' onclick="btnClick('8')">8</td>
+                    <td class='waves-effect waves-orange' onclick="btnClick('9')">9</td>
+                    <td class='waves-effect waves-orange' onclick="delNum()">←</td>
+                </tr>
+                <tr>
+                    <td class='waves-effect waves-orange' onclick="btnClick('4')">4</td>
+                    <td class='waves-effect waves-orange' onclick="btnClick('5')">5</td>
+                    <td class='waves-effect waves-orange' onclick="btnClick('6')">6</td>
+                    <td class='waves-effect waves-orange' onclick="operatorClick(this)" id='minus'>-</td>
+                </tr>
+                <tr>
+                    <td class='waves-effect waves-orange' onclick="btnClick('1')">1</td>
+                    <td class='waves-effect waves-orange' onclick="btnClick('2')">2</td>
+                    <td class='waves-effect waves-orange' onclick="btnClick('3')">3</td>
+                    <td class='waves-effect waves-orange' onclick="operatorClick(this)" id='plus'>+</td>
+                </tr>
+                <tr>
+                    <td class='col s1 waves-effect waves-orange'>.</td>
+                    <td class='waves-effect waves-orange' onclick="btnClick('0')">0</td>
+                    <td class='waves-effect waves-orange' onclick="dataclear()">C</td>
+                    <td class='waves-effect waves-orange' onclick="equal()">=</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        //M.AutoInit();
+        var data = {
+            curNum: null,
+            preNum: null,
+            opreator: null,
+            result: null,
+            clicked: false
+        }
+
+        var input = document.querySelector('#data');
+
+        var btnClick = function (num) {
+
+            if (data.clicked) {
+                dataclear();
+            }
+
+            if (data.result || data.opreator) {
+                if (data.curNum) {
+                    input.value += num;
+                } else {
+                    input.value = num;
+                }
+            } else {
+                if (input.value == 0) {
+                    input.value = +num;
+                } else {
+                    input.value += num;
+                }
+            }
+
+            data.curNum = +(input.value);
+
+            console.log(data.preNum, data.opreator, data.curNum, data.result);
+        }
+
+        var operatorClick = function (a) {
+            data.clicked = false;
+
+            if (data.preNum != null && data.opreator != null && data.curNum != null) {
+                if (data.result) {
+                    switch (data.opreator) {
+                        case 'plus':
+                            data.result += data.curNum;
+                            break;
+                        case 'minus':
+                            data.result -= data.curNum;
+                            break;
+                    }
+
+                } else {
+                    switch (data.opreator) {
+                        case 'plus':
+                            data.result = data.preNum + data.curNum
+                            break;
+                        case 'minus':
+                            data.result = data.preNum - data.curNum
+                            break;
+
+                    }
+                }
+                input.value = data.result;
+
+            }
+            if (data.curNum) {
+                data.result === 0 ? data.preNum = +data.result : data.preNum = +data.curNum
+                data.curNum = null;
+            }
+
+            data.opreator = a.id
+
+            console.log(data.preNum, data.opreator, data.curNum, data.result);
+
+        }
+
+        var equal = function () {
+
+            if (data.result) {
+                if (!data.curNum) {
+                    data.result += data.preNum
+                }
+                switch (data.opreator) {
+                    case 'plus':
+                        data.result += data.curNum
+                        break;
+                    case 'minus':
+                        data.result -= data.curNum
+                        break;
+                }
+            } else {
+                switch (data.opreator) {
+                    case 'plus':
+                        data.result = data.preNum + data.curNum
+                        break;
+                    case 'minus':
+                        data.result = data.preNum - data.curNum
+                        break;
+                }
+            }
+
+            data.preNum = data.curNum;
+            data.curNum = null;
+            //data.preNum = data.result;
+            input.value = data.result;
+            data.clicked = true;
+
+            console.log(data.preNum, data.opreator, data.curNum, data.result);
+
+        }
+        var delNum = function () {
+            console.log('삭제', input.value.length);
+
+            var len = input.value.length;
+
+            if (len === 1) {
+                if (!data.result) {
+                    input.value = null
+                }
+            } else {
+                input.value = input.value.slice(0, input.value.length - 1)
+            }
+        }
+
+        var dataclear = function () {
+            input.value = 0;
+            data.curNum = null;
+            data.preNum = null;
+            data.opreator = null;
+            data.result = null;
+            data.clicked = false;
+        }
+    </script>
+</body>
+
+</html>

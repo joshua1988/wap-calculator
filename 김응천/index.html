@@ -1,0 +1,50 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>계산기 과제 - 김응천</title>
+</head>
+<style>
+</style>
+
+<body>
+    <div class="container">
+        <div class="card-panel grey lighten-5">
+            <div class="row" style='justify-content: space-between'>
+                <div class="col s2">숫자1 : </div>
+                <div class="col s4"><input type="number" id='input1'></div>
+                <div class="col s2">숫자2 : </div>  
+                <div class="col s4"><input type="number" id='input2'></div>
+            </div>
+            <button id='plus' class="black-text white lighten-2 btn waves-effect waves-red">+</button>
+            <button id='minus' class="black-text white lighten-2 btn waves-effect waves-red">-</button>
+            <p>
+                <span>결과</span> : <span id='reslut'></span>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        var input1 = document.querySelector('#input1');
+        var input2 = document.querySelector('#input2');
+        var btnPlus = document.querySelector('#plus');
+        var btnMinus = document.querySelector('#minus');
+        var reslut = document.querySelector('#reslut');
+
+        btnPlus.addEventListener('click', function () {
+            reslut.innerHTML = +input1.value + +input2.value
+            //M.toast({ html: +input1.value + +input2.value })
+        });
+        btnMinus.addEventListener('click', function () {
+            reslut.innerHTML = +input1.value - +input2.value
+            //M.toast({ html: +input1.value - +input2.value })
+        });
+
+    </script>
+</body>
+
+</html>
