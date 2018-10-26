@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>계산기 과제 - 이수근</title>
+</head>
+<body>
+  <div>
+    <h1>계산기</h1>
+    <input name="" id="num1" value = 0>
+    <input name="" id="num2" value = 0>
+    <button  id="plus">+</button>
+    <button  id="minus">-</button>
+    <h2>result</h2>
+    <div class="result"></div>
+  </div>
+</body>
+<script>
+  /*계산*/
+  function calc(operator){
+    var num1 = Number(document.querySelector("#num1").value);
+    var num2 = Number(document.querySelector("#num2").value);
+    var result = 0;
+    if(!checkValid("num1")){return '숫자만입력가능합니다';}
+    if(!checkValid("num2")){return '숫자만입력가능합니다';}
+    if (operator == '+') {result = num1 + num2;
+    } else if (operator == '-'){result = num1 - num2;}
+    var resultText = num1 + operator + num2 +'='+ result;
+    return resultText;
+  }
+
+  /*유효성체크*/
+  function checkValid(val){
+    if(isNaN(document.querySelector("#"+val).value)) { 
+      document.querySelector("#"+val).value=0; return false;
+    } else {return true;}      
+  }
+
+  /*버튼이벤트*/
+  document.querySelector('#plus').addEventListener(
+    'click',function(){document.querySelector('.result').innerText = calc('+');}
+  )
+  document.querySelector('#minus').addEventListener(
+    'click',function(){document.querySelector('.result').innerText = calc('-');}
+  )
+</script>
+</html>
