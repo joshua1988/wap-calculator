@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Facebook Open Graph Markup (how it appears on FB) -->
+    <meta property="og:url" content="https://joshua1988.github.io/DevCampWAP-SWA/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="My Facebook Profile Page" />
+    <meta property="og:description" content="Designed this with bare HTMl, CSS, JS" />
+    <meta property="og:image" content="http://cdn.www.fastcampus.co.kr/wp-content/uploads/2017/04/dev_camp_wap.png" />
+    <title>계산기</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/timeline-cover.css">
+    <link rel="stylesheet" href="css/feature-list.css">
+    <link rel="stylesheet" href="css/profile-description.css">
+    <link rel="stylesheet" href="css/timeline-body.css">
+  </head>
+  <body>
+    <script src="js/fb.js"></script>
+    <input id="a" type="text" name="button" value="" >
+<select>
+  <option value="+">+</option>
+  <option value="-">-</option>
+  <option value="/">/</option>
+  <option value="x">x</option>
+</select>
+    <input id="b" type="text" name="button" value="" >
+
+    =
+    <p>result</p>
+    <input type="button" name="button" value="계산" onclick="calculate()" >
+    <script src="js/main.js"></script>
+  </body>
+</html>
